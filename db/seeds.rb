@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ##-- Add user admin 
-# users = User.create(userid:'textileadmin', first_name: 'Admin', last_name: ' TextileCO ', email: 'admin@textileco.com', password: '12345678', password_confirmation: '12345678')
+users = User.create(userid:'textileadmin', first_name: 'Admin', last_name: ' TextileCO ', email: 'admin@textileco.com', password: '12345678', password_confirmation: '12345678')
 
 
 ##-- Add some departments
@@ -27,7 +27,7 @@
 		:fri =>'true')
 
 	##-- Add fake info for employes
-	10.times do |e|
+	15.times do |e|
 		employe = Employe.create!(:first_name => Faker::Name.first_name, 
 			:last_name=> Faker::Name.last_name,  
 			:address => Faker::Address.street_address, 
@@ -36,6 +36,14 @@
 			:department_id => department.id )
 
 		
+		# 5.time do |a| 
+		# 	employee_attend = EmployesAttendance.create!(
+		# 	:employe_id => employe.id,
+		# 	:departments_schedule_id => dep_schedule.id,
+		# 	:arrival => Faker::Time.between
+
+		# 	)
+		# end 
 	end 
 end
 

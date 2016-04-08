@@ -1,0 +1,36 @@
+<br>
+<p id="notice"><%= notice %></p>
+
+<h1>List Attendance <small> Detail of every employee's check</small></h1> <br>
+
+<table class="table table-striped table-bordered table-hover tableadvanced">
+  <thead>
+    <tr>
+      <th> #</th>
+      <th> Employe's Barcode</th>
+      <th> Employe</th>
+      <th> Arrival</th>
+      <th> Departure</th>
+      <th> Status</th>
+      <th> Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checkattendances.each_with_index do |attendance, key| %>
+      <tr>
+        <td><%= key + 1 %> </td>
+        <td><%= attendance.employe.barcode %> </td>
+        <td><%= attendance.employe.full_name %> </td>
+        <td><%= l attendance.arrival, :format => :long %>  <%if attendance.arrival_ontime > 0  %> <span class="label label-warning"> Late </span> <%else%> <span class="label label-default"> On time </span> <% end %></td>
+        <td><%= l attendance.departure, :format => :long %>  <%if attendance.departure_ontime > 0  %> <span class="label label-warning"> Before </span> <%else%> <span class="label label-default"> On time </span> <% end %></td>
+        <td><%= attendance.status %> </td>
+        <td>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

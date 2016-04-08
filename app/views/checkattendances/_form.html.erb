@@ -1,0 +1,17 @@
+<%= form_for(@checkattendance) do |f| %>
+  <% if @checkattendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checkattendance.errors.count, "error") %> prohibited this checkattendance from being saved:</h2>
+
+      <ul>
+      <% @checkattendance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -18,13 +18,16 @@
 				<li>
 					<%= link_to "Home", root_path %>
 				</li>
+				<li>
+					<%= link_to "Attendance", checkattendances_path %>
+				</li>
 			</ul>
 		</nav>
 
 		<div class="user-controls" style="">
 			<ul>
 				<% if user_signed_in? %>
-				<li>Welcome <%= current_user.email %></li>
+				<li>Welcome <b> <%= current_user.full_name %> <b> </li>
 				<li>
 					<%= link_to "Log out", destroy_user_session_path, :method => :delete %>					
 				</li>
@@ -40,7 +43,7 @@
 	</section>
 	<footer>
 		<div class="text-center">
-			2015 &copy; Textile CO
+			2016 &copy; Textile CO
 		</div>
 	</footer>
 
