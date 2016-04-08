@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408050159) do
+ActiveRecord::Schema.define(version: 20160408060621) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "name",                limit: 50, default: "", null: false
+    t.integer  "arrival_tolerance",   limit: 2,  default: 0,  null: false
+    t.integer  "departure_tolerance", limit: 2,  default: 0,  null: false
+    t.integer  "status",                         default: 1,  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  create_table "departments_schedule", force: :cascade do |t|
+    t.integer  "department_id"
+    t.time     "arrival",       default: '2000-01-01 00:00:00', null: false
+    t.time     "departure",     default: '2000-01-01 00:00:00', null: false
+    t.boolean  "sun",           default: false,                 null: false
+    t.boolean  "mon",           default: false,                 null: false
+    t.boolean  "tue",           default: false,                 null: false
+    t.boolean  "wed",           default: false,                 null: false
+    t.boolean  "thu",           default: false,                 null: false
+    t.boolean  "fri",           default: false,                 null: false
+    t.boolean  "sat",           default: false,                 null: false
+    t.integer  "status",        default: 1,                     null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
+
+  add_index "departments_schedule", ["department_id"], name: "index_departments_schedule_on_department_id"
 
   create_table "employes", force: :cascade do |t|
     t.string   "name",          limit: 50,             null: false
