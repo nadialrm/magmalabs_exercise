@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408060621) do
+ActiveRecord::Schema.define(version: 20160408174443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160408060621) do
     t.datetime "updated_at",                                  null: false
   end
 
-  create_table "departments_schedule", force: :cascade do |t|
+  create_table "departments_schedules", force: :cascade do |t|
     t.integer  "department_id"
     t.time     "arrival",       default: '2000-01-01 00:00:00', null: false
     t.time     "departure",     default: '2000-01-01 00:00:00', null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160408060621) do
     t.datetime "updated_at",                                    null: false
   end
 
-  add_index "departments_schedule", ["department_id"], name: "index_departments_schedule_on_department_id", using: :btree
+  add_index "departments_schedules", ["department_id"], name: "index_departments_schedules_on_department_id", using: :btree
 
   create_table "employes", force: :cascade do |t|
     t.string   "first_name",    limit: 50,  default: "", null: false
