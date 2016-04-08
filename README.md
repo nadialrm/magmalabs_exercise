@@ -51,3 +51,17 @@ If we do, then the extra feature is:
 
 ## Textil CO 
 
+- Instructions 
+
+* Clone the repository in your enviroment
+* Run the bundle and seed, to pupulate and install all you need.
+	bundle install
+	rake db:create
+	rake db:migrate
+	rake db:seed
+* The seed have an user default: 
+ ** user mail: admin@textileco.com
+ ** user pwd:  12345678
+* Inside the app , you will see the menu in top
+ ** Home /dashboard
+ ** Attendance : This section has the list of all attendance registred by the employees, date and time arrival , date and time of departure, in every case shows if the employee arrive late or on - time. In the case of departure specify if go before the time
