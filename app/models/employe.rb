@@ -6,10 +6,10 @@ class Employe < ActiveRecord::Base
 	enum status: [:erased, :active, :inactive]
 
 	##--- Validations
-	validates :fist_name, :presence => { message: "The employe's name should be filled."}, length: {maximum: 50, too_long: "The employe's name shouldn't have more than %{count} characters."}
+	validates :first_name, :presence => { message: "The employe's name should be filled."}, length: {maximum: 50, too_long: "The employe's name shouldn't have more than %{count} characters."}
 	validates :last_name, :presence => { message: "The employe's last name should be filled."}, length: {maximum: 50, too_long: "The employe's last name shouldn't have more than %{count} characters."}
 	validates :phone, :presence => { message: "The employe's phone should be filled." }
-	validates :address, :presence => { message: "The employe's address should be filled."}, length: { maximum: 10, too_long: "The employe's address shouldn't have more than %{count} characters." } 
+	validates :address, :presence => { message: "The employe's address should be filled."}, length: { maximum: 255, too_long: "The employe's address shouldn't have more than %{count} characters." } 
 	validates_uniqueness_of :barcode, message: "The employe's barcode should be unique. Please verify"
 
 

@@ -11,14 +11,31 @@
 
 
 ##-- Add some departments
-3.times do |dep|
-	department = Department.create(:name => Faker::Commerce.department, 
+3.times do |d|
+	department = Department.create!(:name => Faker::Commerce.department, 
 		:arrival_tolerance => Faker::Number.between(0, 6),
 		 :departure_tolerance => Faker::Number.between(0, 6))
 
-	##-- Add info for employes
-	10.times do |emp|
-		employe = Employe.create(:first_name => Faker::Name.first_name, :last_name=> Faker::Name.last_name,  :address => Faker::Address.street_address, :phone => Faker::PhoneNumber.cell_phone, :barcode => Faker::Code.ean, :department_id => department.id )
+	##-- Schedule department....
+	dep_schedule = DepartmentsSchedule.create!(:department_id => department.id,
+		:arrival => '09:00', 
+		:departure => '18:00',
+		:mon =>'true',
+		:tue =>'true',
+		:wed =>'true',
+		:thu =>'true',
+		:fri =>'true')
+
+	##-- Add fake info for employes
+	10.times do |e|
+		employe = Employe.create!(:first_name => Faker::Name.first_name, 
+			:last_name=> Faker::Name.last_name,  
+			:address => Faker::Address.street_address, 
+			:phone => Faker::PhoneNumber.cell_phone, 
+			:barcode => Faker::Code.ean, 
+			:department_id => department.id )
+
+		
 	end 
 end
 
