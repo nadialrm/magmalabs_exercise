@@ -8,7 +8,41 @@
 </head>
 <body>
 
-<%= yield %>
+	<header>
+		<a href="/" class="logo">
+			Textile CO
+		</a>
+		<!-- navigation / breadcrum gems-->
+		<nav>
+			<ul>
+				<li>
+					<%= link_to "Home", root_path %>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="user-controls" style="">
+			<ul>
+				<% if user_signed_in? %>
+				<li>Welcome <%= current_user.email %></li>
+				<li>
+					<%= link_to "Log out", destroy_user_session_path, :method => :delete %>					
+				</li>
+				<% else %>
+					<%= link_to "Log in", new_user_session_path %>
+				<% end %>
+			</ul>
+		</div>
+	</header>
+	<section class="main">
+
+		<%= yield %>
+	</section>
+	<footer>
+		<div class="text-center">
+			2015 &copy; Textile CO
+		</div>
+	</footer>
 
 </body>
 </html>
