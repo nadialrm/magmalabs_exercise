@@ -54,12 +54,14 @@ If we do, then the extra feature is:
 - Instructions 
 
 * Clone the repository in your enviroment
+* Create database.yml basic on ./config dir.
 * Run the bundle and seed, to pupulate and install all you need.
 	bundle install
 	rake db:create
 	rake db:migrate
 	rake db:seed
-* The seed have an user default: 
+* Start the server with rails server and go to browser at localhost:3000
+* Log in: The seed have an user default: 
  ** user mail: admin@textileco.com
  ** user pwd:  12345678
 * Inside the app , you will see the menu in top
